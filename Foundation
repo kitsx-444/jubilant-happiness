@@ -1,0 +1,57 @@
+# Loops and classes
+
+# Instead of create individual objects, store multiple objects
+# in a list and loop through them.
+
+# Logic:
+# Create class named Trade
+# Create init with pair, outcome and pips attributes
+# create display and print out a neat summary.
+# Write a function named analyse_trades(trade_list)
+# Create an empty list variable
+# Create 5 objects and write each of them into the empty list
+# variable. my_list = [item1, item2, item3]
+
+# # To get wins A counter and loop is enough. Use if statements and in and a counter.
+# To calculate pips think back to exercise 8. A counter and loop
+# is enough. (pips = 0. total_pips = pips + trade.pips)
+
+# Within the function print the display, total wins and losses and total pips.
+
+class Trade():
+	def __init__(self, pair, outcome, pips):
+		self.pair = pair
+		self.outcome = outcome
+		self.pips = pips
+	def display(self):
+		print(f'{self.pair} | {self.outcome} | {self.pips}')
+
+trade_list = [Trade('EURUSD', 'Win', 20),
+			  Trade('GBPUSD', 'Lose', -20),
+			  Trade('GBPCAD', 'Break-Even', 0),
+			  Trade('AUDCAD', 'Win', 35),
+			  Trade('USDKWD', 'Break-Even', 2)]
+
+
+def analyse_trades(trade_list):
+	wins = 0 # I added them into the function simply because the variables under the for loop gave an error.
+	losses = 0
+	break_evens = 0
+	pips = 0
+	for trade in trade_list(): # remove the (). it is a list, not a function.
+		if 'Win' in trade:
+			wins += 1
+		if 'Lose' in trade:
+			losses += 1
+		if 'Break-Even' in trade:
+			break_evens += 1
+
+		total_pips = pips + trade.pips
+
+	print('Summary:')
+	print(f'Total Wins: {wins}')
+	print(f'Total Losses: {losses}')
+	print(f'Total Break-Evens: {break_evens}')
+
+analyse_trades(trade_list)
+
