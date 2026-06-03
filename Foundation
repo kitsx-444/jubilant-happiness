@@ -4,7 +4,7 @@ class Trade():
 		self.outcome = outcome
 		self.pips = pips
 	def display(self):
-		print(f'{self.pair} | {self.outcome} | {self.pips}')
+		print(f'{self.pair} | {self.outcome} | {self.pips} pips')
 
 trade_list = [Trade('EURUSD', 'Win', 20),
 			  Trade('GBPUSD', 'Lose', -20),
@@ -28,12 +28,12 @@ def analyse_trades(trade_list):
 			break_evens += 1
 
 		total_pips += trade.pips
+		trade.display()
 
 	print('Summary:')
-	print(trade.display())
 	print(f'Total Wins: {wins}')
 	print(f'Total Losses: {losses}')
 	print(f'Total Break-Evens: {break_evens}')
-	print('Total Pips:', total_pips)
+	print('Total Pips:', total_pips, 'pips')
 
 analyse_trades(trade_list)
